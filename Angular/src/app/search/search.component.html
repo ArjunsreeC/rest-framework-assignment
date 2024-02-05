@@ -1,0 +1,76 @@
+<div *ngIf="searchFlag; else elseBlock">
+
+  <div id="alert2" class="container">
+  <p>
+    <ngb-alert [dismissible]="false" (click)="searchChange()">
+      Click Here to <strong> Search by Name</strong>.
+    </ngb-alert>
+  </p>
+  </div>
+
+
+  <div class="container" id="form">
+  <div class="jumbotron">
+  <form>
+
+    <div class="form-group">
+      <label for="name">Enter Reg Number</label>
+      <input type="text" class="form-control" name="regno" [(ngModel)]="searchStudentData.regno"
+      ngModel required><br>
+    </div>
+
+    <button class="btn btn-outline-primary btn-sm" type="button" name="button" (click)=searchStudent()> Search </button>
+
+  </form>
+  </div>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+
+  <div id="alert" class="container">
+  <p>
+    <ngb-alert [dismissible]="false" (click)="searchChange()">
+      Click Here to <strong>Search by Register Number</strong>.
+    </ngb-alert>
+  </p>
+  </div>
+
+  <div class="container" id="form">
+  <div class="jumbotron">
+  <form>
+
+    <div class="form-group">
+      <label for="name">Enter Name</label>
+      <input type="text" class="form-control" name="name" [(ngModel)]="searchStudentData.name"
+      ngModel required><br>
+    </div>
+
+    <button class="btn btn-outline-primary btn-sm" type="button" name="button" (click)=searchStudentName()> Search </button>
+
+  </form>
+  </div>
+  </div>
+</ng-template>
+
+<div *ngIf="regnoFlag" class="container">
+  <div class="jumbotron">
+    <h4>Search Result</h4>
+    <strong>RegNo :</strong> {{searchResult.regno}} <br>
+    <strong>Name  :</strong> {{searchResult.name}} <br>
+    <strong>Email :</strong> {{searchResult.email}} <br>
+    </div>
+</div>
+
+<div *ngIf="nameFlag" class="container">
+  <div class="jumbotron">
+    <h4>Search Result</h4>
+    <div *ngFor="let student of students">
+      <div *ngIf="student.name==searchStudentData.name">
+        <strong>RegNo :</strong> {{student.regno}} <br>
+        <strong>Name  :</strong> {{student.name}} <br>
+        <strong>Email :</strong> {{student.email}} <br>
+      </div>
+    </div>
+  </div>
+</div>

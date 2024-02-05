@@ -1,0 +1,21 @@
+#data{
+  border: 10px;
+  border-radius: 5px;
+  width: 700px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#form{
+  width: 500px;
+}
+
+#button1,#button2{
+  margin: 10px;
+  width: 45%;
+}
+
+h4{
+  text-align: center;
+}
